@@ -17,9 +17,13 @@ For now, I performed two experiments:
 1. Training a model to associate a function to its CFG: [src_to_ast](./src_to_ast/).
 2. Training a model to associate a function to its AST: [src_to_cfg](./src_to_cfg/).
 
-These models are built on the same base:\
-<img src="model.png" alt="drawing" width="200"/>
-
 Each folder contains the same files (jupyter notebooks):
 - `training.ipynb` where we define and train the model.
 - `eval.ipynb` where we assess the performance of the model.
+
+These models are built on the same base:\
+<img src="model.png" alt="drawing" width="200"/>
+
+However, different hyperparameters of the encoders, as well as tokenizers change (see the code for details).
+
+I do not claim that this is the best architecture for this task, but it has the benefits of being simple and straightforward.
