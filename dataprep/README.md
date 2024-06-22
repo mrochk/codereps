@@ -5,7 +5,7 @@
 ***
 
 *If you do not want to run this script yourself (it can take a lot of time) I uploaded the dataset at\
-https://huggingface.co/datasets/mrochk/src_cfg_ast.*
+https://huggingface.co/datasets/mrochk/src_ast_cfg.*
 
 *You can use it simply with:*
 ``` python
