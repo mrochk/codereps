@@ -14,7 +14,6 @@ dataset = load_dataset('mrochk/src_cfg_ast')
 ```
 ***
 
-
 Creating the dataset for this project can be described with the following steps:
 1. Load the [CodeSearchNet](https://huggingface.co/datasets/code-search-net/code_search_net) *Python* subset dataset.
 2. Keep only "single" functions (remove samples containing nested functions or classes, as well as functions taking special arguments such as `**kwargs` for example).

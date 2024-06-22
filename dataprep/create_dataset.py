@@ -1,8 +1,9 @@
-from collections        import deque
-from datasets           import load_dataset, Dataset
-from funcskeleton       import SkeletonEncoder, SkeletonSerializer
-import funcskeleton.utils
 import ast
+from collections import deque
+from datasets import load_dataset, Dataset
+
+import funcskeleton, funcskeleton.utils
+from funcskeleton import SkeletonEncoder, SkeletonSerializer
 
 def get_ast_nodes_dfs(tree:ast.AST):
     """
@@ -10,8 +11,10 @@ def get_ast_nodes_dfs(tree:ast.AST):
     """
     def dfs(node, queue=deque()):
         queue.append(type(node).__name__.upper())
+
         for child in ast.iter_child_nodes(node):
             queue = dfs(child, queue)
+
         return queue
 
     return '_'.join(dfs(tree))
@@ -23,9 +26,10 @@ def filter(sample:dict):
     function = sample['func_code_string']
     A = SkeletonEncoder.function_sanity_check(function)
     B = '*' not in function # no *args or **kwargs
+
     return A and B 
 
-def process_split(split, name, n_processes):
+def process_split(split, name, timeout, n_processes):
     data = []
 
     print(f'Loading {name} split...', flush=True)
@@ -55,25 +59,27 @@ if __name__ == '__main__':
         trust_remote_code=True,
     )
 
-    print(f'Before(train): {code_search_net["train"].num_rows}')
-    print(f'Before(test):  {code_search_net["test"].num_rows}')
+    #print(f'Before(train): {code_search_net["train"].num_rows}')
+    #print(f'Before(test): {code_search_net["test"].num_rows}')
     print(f'Before(validation): {code_search_net["validation"].num_rows}')
 
     # apply filter
-    code_search_net['train'] = code_search_net['train'].filter(lambda _: filter(_))
-    code_search_net['test']  = code_search_net['test'].filter(lambda _: filter(_))
+    #code_search_net['train'] = code_search_net['train'].filter(lambda _: filter(_))
+    #code_search_net['test'] = code_search_net['test'].filter(lambda _: filter(_))
     code_search_net['validation'] = code_search_net['validation'].filter(lambda _: filter(_))
 
-    print(f'After filtering (train): {code_search_net["train"].num_rows}')
-    print(f'After filtering (test):  {code_search_net["test"].num_rows}')
+    #print(f'After filtering (train): {code_search_net["train"].num_rows}')
+    #print(f'After filtering (test): {code_search_net["test"].num_rows}')
     print(f'After filtering (validation): {code_search_net["validation"].num_rows}')
 
-    csn_train = code_search_net['train']
-    csn_test  = code_search_net['test']
+    #csn_train = code_search_net['train']
+    #csn_test  = code_search_net['test']
     csn_val   = code_search_net['validation']
     
-    splits = [csn_test, csn_val, csn_train]
-    split_names = ['test', 'validation', 'train']
+    #splits = [csn_test, csn_val, csn_train]
+    splits = [csn_val]
+    #split_names = ['test', 'validation', 'train']
+    split_names = ['validation']
 
     for split, name in zip(splits, split_names):
-        process_split(split, name, n_processes=20)
+        process_split(split, name, timeout=1, n_processes=1)
