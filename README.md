@@ -23,7 +23,7 @@ Each folder contains the same files (as notebooks):
 
 These models are built on the same base:
 
-<img src="base_model.png" alt="Model Architecture" width="200"/>
+<img src="model.png" alt="Model Architecture" width="200"/>
 
 However, different hyperparameters of the encoders are not the same for each model,\
 as well as the tokenizers (see the code directly for details).
