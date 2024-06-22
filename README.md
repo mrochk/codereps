@@ -25,7 +25,11 @@ These models are built on the same base:
 
 <img src="model.png" alt="Model Architecture" width="300"/>
 
-However, different hyperparameters of the encoders are not the same for each model,\
+Each input (in this case we have two inputs, for e.g the function and its AST) goes in its\
+associated encoder, allowing us to get a fixed size representation of it, then, encoder outputs\
+are concatenated and fed to a Feedforward neural net. 
+
+Different hyperparameters of the encoders are not the same for each model,\
 as well as the tokenizers (see the code directly for details).
 
 I do not claim that this is the best architecture for this task, but it has the benefits of\
