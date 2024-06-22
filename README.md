@@ -1,4 +1,4 @@
-# CodeReps-Transformer
+# codereps
 Transformer models learn to associate code representations. 
 
 This project/experiment aims to see how well can small deep learning transformer models \
