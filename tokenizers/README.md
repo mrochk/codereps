@@ -5,6 +5,6 @@ This folder contains the [code](./train_tokenizers.py) used to train tokenizers 
 
 We use HuggingFace's [`tokenizers`](https://github.com/huggingface/tokenizers) library for training.
 
-Both trained tokenizers are BPEs ([*Byte pair encoding*](https://en.wikipedia.org/wiki/Byte_pair_encoding)), with variations for different vocabsize $\in \{500, 1000, 2000, 5000\}$.
+Both trained tokenizers are BPEs ([*Byte pair encoding*](https://en.wikipedia.org/wiki/Byte_pair_encoding)), with variations for different vocabsize $\in \lbrace 500, 1000, 2000, 5000 \rbrace$.
 
 *For the source code we use a pre-trained tokenizer.*
