@@ -23,7 +23,7 @@ Each folder contains the same files (as notebooks):
 
 These models are built on the same base:
 
-<img src="model.png" alt="Model Architecture" width="300"/>
+<img src="arch.png" alt="base architecture" width="300"/>
 
 Each input (in this case we have two inputs, for e.g the function and its AST) goes in its\
 associated encoder, allowing us to get a fixed size representation of it, then, encoder outputs\
