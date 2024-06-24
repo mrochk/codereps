@@ -5,32 +5,37 @@ This project/experiment aims to see how well can small deep learning transformer
 learn and perform at associating Python functions to their respective code representations,\
 namely their AST (*Abtract Syntax Tree*) & CFG (*Control Flow Graph*).
 
-First, I built a dataset of triplets (function, AST, CFG).\
-*The code used to do it can be found in the [dataprep](./dataprep/) folder.*
+First, I built a dataset of triplets (Function, AST, CFG).\
+*The code can be found in [dataprep](./dataprep/).*
+
+The second step was to train some tokenizers on our representations.\
+*The code can be found in [tokenizers](./tokenizers/).*
 
 Then, we shuffle some percentage of the dataset, that is, depending on the task,\
 we exchange say 50% of ASTs (or CFGs) between each other. The model will then be\
 trained to find, either using or the source code, or the CFG, or both, if they are\
-related to the AST or not, that is if this AST was generated from the function or not.
+related to the AST or not, that is: *was this AST generated from the function or not*.
 
 For now, I performed two experiments:
 1. Training a model to associate a function to its CFG: [src_to_ast](./src_to_ast/).
 2. Training a model to associate a function to its AST: [src_to_cfg](./src_to_cfg/).
 
-Each folder contains the same files (as notebooks):
+These directories contain the same files (*notebooks*):
 - `training.ipynb` where we define and train the model.
 - `eval.ipynb` where we assess the performance of the model.
 
-These models are built on the same base:
+Models are built on the same base:
 
 <img src="arch.png" alt="base architecture" width="300"/>
 
-Each input (in this case we have two inputs, for e.g the function and its AST) goes in its\
-associated encoder, allowing us to get a fixed size representation of it, then, encoder outputs\
-are concatenated and fed to a Feedforward neural net. 
+This is an example with two inputs because this is the configuration we mostly used.
+
+Each input goes in its associated encoder, allowing us to get a fixed size\
+representation of it, then, encoder outputs are concatenated and fed to a\
+feedforward neural network. 
 
 Different hyperparameters of the encoders are not the same for each model,\
 as well as the tokenizers (see the code directly for details).
 
-I do not claim that this is the best architecture for this task, but it has the benefits of\
-being simple and straightforward.
+*I do not claim that this is the best architecture for this task, but it has the benefits of\
+being simple and straightforward.*
