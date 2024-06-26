@@ -40,13 +40,18 @@ length = len(train['ast'])
 # we produce 4 variations for both with different vocabulary size
 for vocab_size in [500, 1000, 2000, 5000]:
 
-    trainer = BpeTrainer(
+    trainer_ast = BpeTrainer(
         vocab_size=vocab_size, 
         special_tokens=["[UNK]", "[CLS]", "[SEP]", "[PAD]", "[MASK]"]
     )
 
-    tokenizer_ast.train_from_iterator(train['ast'], trainer, length)
-    tokenizer_cfg.train_from_iterator(train['cfg'], trainer, length)
+    trainer_cfg = BpeTrainer(
+        vocab_size=vocab_size, 
+        special_tokens=["[UNK]", "[CLS]", "[SEP]", "[PAD]", "[MASK]"]
+    )
+
+    tokenizer_ast.train_from_iterator(train['ast'], trainer_ast, length)
+    tokenizer_cfg.train_from_iterator(train['cfg'], trainer_cfg, length)
 
     tokenizer_ast.save(f'{PATH_TO_TOKENIZERS}tokenizer_ast_{vocab_size}.json')
-    tokenizer_ast.save(f'{PATH_TO_TOKENIZERS}tokenizer_cfg_{vocab_size}.json')
+    tokenizer_cfg.save(f'{PATH_TO_TOKENIZERS}tokenizer_cfg_{vocab_size}.json')
