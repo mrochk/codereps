@@ -11,11 +11,12 @@ The second step was to train some tokenizers on our representations.\
 
 Then, we shuffle some percentage of the dataset, that is, depending on the task, we exchange say 50% of ASTs (or CFGs) between each other. The model will then be trained to find, either using or the source code, or the CFG, or both, if they are related to the AST or not, that is: *was this AST generated from the function or not*.
 
-For now, I performed two experiments:
-1. Training a model to associate a function to its CFG: [src_to_ast](./src_to_ast/).
-2. Training a model to associate a function to its AST: [src_to_cfg](./src_to_cfg/).
+For now, I performed three experiments:
+1. Training a model to associate a function source code to its AST: [src_to_ast](./src_to_ast/).
+2. Training a model to associate a function source code to its CFG: [src_to_cfg](./src_to_cfg/).
+3. Training a model to associate a function CFG to its AST: [cfg_to_ast](./cfg_to_ast/).
 
-These directories contain the same files (*notebooks*):
+These directories all contain the same two files (*notebooks*):
 - `training.ipynb` where we define and train the model.
 - `eval.ipynb` where we assess the performance of the model.
 
