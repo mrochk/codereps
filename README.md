@@ -4,7 +4,7 @@ This repository contains resources and code used during my 2024 summer internshi
 
 My work aimed at finding ways to improve LLMs performances and capacities on software engineering tasks by exploring the use of **efficiently tokenizable intermediate code representations**.
 
-### *Phase 1*
+## *Phase 1*
 
 The first step was to explore different code representations, that phase gave birth to: 
 - A Python package for Control Flow Graphs serialization: [funcskeleton](https://github.com/mrochk/funcskeleton) 
