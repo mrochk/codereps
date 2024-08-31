@@ -17,3 +17,7 @@ Then, I started training small transformer models from scratch on a dummy binary
 ## *Phase 3*
 
 I fine-tuned and extended the pre-trained transformer encoder *DistilBERT* on the same task and dataset, one version of the model was simply fine tuned by adding a classification head on top of it, and another one was extended by adding to the model a new custom embedding layer using our own tokenizer, both models demonstrated similar performance. The code for this can be found on Kaggle.
+
+***
+
+*A talk that I gave **in french** after completing the first 3 phases of this project was recorded and is available [here](https://drive.google.com/file/d/1P4517oADcLtzRxU3f12o0lRi4WYL9_49/view?usp=sharing).* 
