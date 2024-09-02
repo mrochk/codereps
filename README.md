@@ -47,6 +47,8 @@ Thus showing that $B$ learned the IR meaning or at least some part of it, and th
 - codeparrot https://huggingface.co/codeparrot/codeparrot
 - incoder https://huggingface.co/facebook/incoder-1B
 - polycoder https://huggingface.co/NinedayWang/PolyCoder-0.4B
+- phi-1 https://huggingface.co/microsoft/phi-1
+- refact https://huggingface.co/smallcloudai/Refact-1_6B-fim
 
 **Datasets**
 
