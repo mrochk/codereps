@@ -50,6 +50,8 @@ Thus showing that $B$ learned the IR meaning or at least some part of it, and th
 - phi-1 https://huggingface.co/microsoft/phi-1
 - refact https://huggingface.co/smallcloudai/Refact-1_6B-fim
 
+*A priori* we are going to use a model in the family of Phi models.
+
 **Datasets**
 
 - APPS https://github.com/hendrycks/apps
